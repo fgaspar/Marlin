@@ -8818,11 +8818,11 @@ void ok_to_send() {
    * settings have been changed (e.g., by M665).
    */
   void recalc_delta_settings(float radius, float diagonal_rod) {
-    delta_tower1_x = -SIN_60 * (radius + DELTA_RADIUS_TRIM_TOWER_1);  // front left tower
-    delta_tower1_y = -COS_60 * (radius + DELTA_RADIUS_TRIM_TOWER_1);
-    delta_tower2_x =  SIN_60 * (radius + DELTA_RADIUS_TRIM_TOWER_2);  // front right tower
-    delta_tower2_y = -COS_60 * (radius + DELTA_RADIUS_TRIM_TOWER_2);
-    delta_tower3_x = 0.0;                                             // back middle tower
+    delta_tower1_x = DELTA_TOWER1_X_ANGLE * (radius + DELTA_RADIUS_TRIM_TOWER_1);  // front left tower
+    delta_tower1_y = DELTA_TOWER1_Y_ANGLE * (radius + DELTA_RADIUS_TRIM_TOWER_1);
+    delta_tower2_x = DELTA_TOWER2_X_ANGLE * (radius + DELTA_RADIUS_TRIM_TOWER_2);  // front right tower
+    delta_tower2_y = DELTA_TOWER2_Y_ANGLE * (radius + DELTA_RADIUS_TRIM_TOWER_2);
+    delta_tower3_x = 0.0;                                                          // back middle tower
     delta_tower3_y = (radius + DELTA_RADIUS_TRIM_TOWER_3);
     delta_diagonal_rod_2_tower_1 = sq(diagonal_rod + delta_diagonal_rod_trim_tower_1);
     delta_diagonal_rod_2_tower_2 = sq(diagonal_rod + delta_diagonal_rod_trim_tower_2);
